@@ -63,16 +63,16 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
 }
 
-/*
-afterEvaluate{
-    publishing {
-        publications {
-            release(MavenPublication){
-                from components.release
-                        groupId ="com.Ui.Library"
-                artifactId="Library"
-                version="1.0.0"
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.example.uilibrary"
+            artifactId = "uilibrary"
+            version = "1.0"
+
+            afterEvaluate {
+                from(components["release"])
             }
         }
     }
-}*/
+}
